@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+th,
+td {
+    padding: 25px;
+}
+
+.bg {
+    background-image: url("/assets/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+.grid {
+    border-width: 7px;
+    border-style: solid;
+    border-color: #000000;
+    justify-self: center;
+    align-self: center;
+}
