@@ -2,11 +2,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 th,
 td {
-    padding: 25px;
+    padding: 50px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #1B7228;
+}
+
+.scene-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bg {
@@ -22,7 +35,26 @@ td {
 .grid {
     border-width: 7px;
     border-style: solid;
-    border-color: #000000;
     justify-self: center;
     align-self: center;
+    margin-top: 10vh;
+    border-collapse: collapse;
+    position: relative;
+    z-index: 10;
+}
+
+.jellies {
+    position: absolute;
+    display: flex;
+
+    margin-top: 30vh;
+    gap: 67vw;
+    justify-content: center;
+    justify-self: center;
+
+    z-index: 100;
+}
+
+.jellies img {
+    scale: 65%;
 }
