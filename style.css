@@ -7,10 +7,11 @@
 
 th,
 td {
-    padding: 50px;
     border-width: 7px;
     border-style: solid;
     border-color: #1B7228;
+    height: 85px;
+    width: 85px;
 }
 
 .scene-container {
@@ -20,6 +21,7 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .bg {
@@ -33,11 +35,11 @@ td {
 }
 
 .grid {
+    table-layout: fixed;
     border-width: 7px;
     border-style: solid;
     justify-self: center;
     align-self: center;
-    margin-top: 10vh;
     border-collapse: collapse;
     position: relative;
     z-index: 10;
@@ -47,7 +49,7 @@ td {
     position: absolute;
     display: flex;
 
-    margin-top: 30vh;
+    margin-top: 5vh;
     gap: 67vw;
     justify-content: center;
     justify-self: center;
@@ -57,4 +59,16 @@ td {
 
 .jellies img {
     scale: 65%;
+}
+
+.bubbles {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.bubbles img {
+    width: 35px;
 }
