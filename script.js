@@ -1,19 +1,17 @@
-const ROWS = 5;
-const COLS = 6;
+const ROWS = 6;
+const COLS = 7;
 let grid = Array.from({ length: ROWS }, () => Array(COLS).fill(" "));
 let player1Turn = true;
 let endGame = false;
 
 const board = document.querySelector(".grid");
-const trElements = WebTransportBidirectionalStream.querySelector('tr');
+const trElements = board.querySelectorAll('tr');
 
-trElements.forEach((tr) => {
-    const cells = tr.querySelectorAll('td');
-    cells.forEach((td, colIndex) => {
-        td.addEventListener('click', () => {
-            if (endGame) return;
-            handleColumnClick(colINdex);
-        });
+document.querySelectorAll('.bubbles').forEach(button => {
+    button.addEventListener('click', () => {
+        if (endGame) return;
+        const col = parseInt(button.getAttribute('data-col'));
+        handleColumnClick(col);
     });
 });
 
@@ -45,7 +43,7 @@ function handleColumnClick(col) {
         return;
     }
 
-    if (grid.flat().every(cell => cell !== "_")) {
+    if (grid.flat().every(cell => cell !== " ")) {
         setTimeout(() => alert("tie"), 10);
         endGame = true;
         return;
@@ -60,12 +58,21 @@ function updateUI() {
         const cells = trElements[htmlRowIndex].querySelectorAll('td');
 
         for (let c = 0; c < COLS; c++) {
-            cells[c].classList.remove('player1', 'player2');
+            const cell = cells[c];
+            cell.innerHTML = "";
+
             if (grid[r][c] === "X") {
-                cells[c].classList.add('player1');
+                const img = document.createElement("img");
+                img.src = "/assets/nemo.png";
+                img.alt = "X";
+                cell.appendChild(img);
             }
-            else if (grid[r][c] === "o") {
-                cells[c].classList.add('player2');
+
+            else if (grid[r][c] === "O") {
+                const img = document.createElement("img");
+                img.src = "/assets/dory.png";
+                img.alt = "O";
+                cell.appendChild(img);
             }
         }
     }
@@ -73,28 +80,28 @@ function updateUI() {
 
 function checkWin(grid) {
     for (let i = 0; i < ROWS; i++) {
-        for (let c = 0; c < 4; c++) {
-            if (grid[i][c] != " " &&
-                grid[i][c] === grid[i][c + 1] &&
-                grid[i][c] === grid[i][c + 2] &&
-                grid[i][c] === grid[i][c + 3])
-                return true;
-        }
-    }
-
-    for (let i = 0; i < ROWS; i++) {
         for (let r = 0; r < 4; r++) {
-            if (!grid[r][i] !== "_" &&
-                grid[r][i] === grid[r + 1][i] &&
-                grid[r][i] == (grid[r + 2][i]) &&
-                grid[r][i] == (grid[r + 3][i]))
+            if (grid[r][c] != " " &&
+                grid[r][c] === grid[r][c + 1] &&
+                grid[r][c] === grid[r][c + 2] &&
+                grid[r][c] === grid[r][c + 3])
                 return true;
         }
     }
 
-    for (let i = 0; i < 6; i++) {
-        for (let j = 0; j < 7; j++) {
-            if (!grid[i][j] === "_" &&
+    for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < COLS; c++) {
+            if (grid[r][i] !== " " &&
+                grid[r][i] === grid[r + 1][c] &&
+                grid[r][i] == (grid[r + 2][c]) &&
+                grid[r][i] == (grid[r + 3][c]))
+                return true;
+        }
+    }
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 4; j++) {
+            if (grid[i][j] !== " " &&
                 grid[i][j] === grid[i + 1][j + 1]
                 && grid[i][j] === grid[i + 2][j + 2]
                 && grid[i][j] === grid[i + 3][j + 3])
@@ -102,9 +109,9 @@ function checkWin(grid) {
         }
     }
 
-    for (let i = 3; i < 6; i++) {
+    for (let i = 3; i < ROWS; i++) {
         for (let j = 0; j < 4; j++) {
-            if (!grid[i][j] === "_" &&
+            if (grid[i][j] !== " " &&
                 grid[i][j] === grid[i - 1][j + 1]
                 && grid[i][j] === grid[i - 2][j + 2]
                 && grid[i][j] === grid[i - 3][j + 3])
