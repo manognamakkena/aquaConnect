@@ -14,6 +14,10 @@ td {
     width: 85px;
 }
 
+.button-row {
+    border: none;
+}
+
 .scene-container {
     position: relative;
     width: 100vw;
@@ -22,6 +26,7 @@ td {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-top: 0vh;
 }
 
 .bg {
@@ -43,6 +48,7 @@ td {
     border-collapse: collapse;
     position: relative;
     z-index: 10;
+    margin-top: -10vh;
 }
 
 .jellies {
@@ -84,4 +90,19 @@ td {
 
 .glow {
     filter: drop-shadow(0 0 12px rgba(255, 0, 47, 0.9));
+}
+
+.help {
+    border-radius: 20px;
+    border: none;
+    background-color: #20939b;
+    color: #ffffff;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    width: 5vh;
+    height: 5vh;
+    margin-left: 1vh;
+    margin-top: 1vh;
 }
