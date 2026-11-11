@@ -6,6 +6,10 @@ let endGame = false;
 
 const board = document.querySelector(".grid");
 const trElements = board.querySelectorAll('tr');
+const player1Indicator = document.querySelector("#player1-indicator");
+const player2Indicator = document.querySelector("#player2-indicator");
+
+updateTurnIndicator();
 
 document.querySelectorAll('.bubbles').forEach(button => {
     button.addEventListener('click', () => {
@@ -50,6 +54,12 @@ function handleColumnClick(col) {
     }
 
     player1Turn = !player1Turn;
+    updateTurnIndicator();
+}
+
+function updateTurnIndicator() {
+    player1Indicator.classList.toggle("glow", player1Turn);
+    player2Indicator.classList.toggle("glow", !player1Turn);
 }
 
 function updateUI() {

@@ -81,3 +81,7 @@ td {
     display: block;
     margin: 0 auto;
 }
+
+.glow {
+    filter: drop-shadow(0 0 12px rgba(255, 0, 47, 0.9));
+}
