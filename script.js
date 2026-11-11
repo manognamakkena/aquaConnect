@@ -37,7 +37,7 @@ function handleColumnClick(col) {
     updateUI();
 
     if (checkWin(grid)) {
-        const winner = player1Turn ? "player 1(X)" : "player 2(o)";
+        const winner = player1Turn ? "Player 1(Nemo)" : "Player 2(Dory)";
         setTimeout(() => alert(`${winner} Wins!`), 10);
         endGame = true;
         return;
@@ -79,8 +79,8 @@ function updateUI() {
 }
 
 function checkWin(grid) {
-    for (let i = 0; i < ROWS; i++) {
-        for (let r = 0; r < 4; r++) {
+    for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < 4; c++) {
             if (grid[r][c] != " " &&
                 grid[r][c] === grid[r][c + 1] &&
                 grid[r][c] === grid[r][c + 2] &&
@@ -91,30 +91,30 @@ function checkWin(grid) {
 
     for (let r = 0; r < 3; r++) {
         for (let c = 0; c < COLS; c++) {
-            if (grid[r][i] !== " " &&
-                grid[r][i] === grid[r + 1][c] &&
-                grid[r][i] == (grid[r + 2][c]) &&
-                grid[r][i] == (grid[r + 3][c]))
+            if (grid[r][c] !== " " &&
+                grid[r][c] === grid[r + 1][c] &&
+                grid[r][c] == (grid[r + 2][c]) &&
+                grid[r][c] == (grid[r + 3][c]))
                 return true;
         }
     }
 
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 4; j++) {
-            if (grid[i][j] !== " " &&
-                grid[i][j] === grid[i + 1][j + 1]
-                && grid[i][j] === grid[i + 2][j + 2]
-                && grid[i][j] === grid[i + 3][j + 3])
+    for (let r = 0; r < 3; r++) {
+        for (let c = 0; c < 4; c++) {
+            if (grid[r][c] !== " " &&
+                grid[r][c] === grid[r + 1][c + 1]
+                && grid[r][c] === grid[r + 2][c + 2]
+                && grid[r][c] === grid[r + 3][c + 3])
                 return true;
         }
     }
 
-    for (let i = 3; i < ROWS; i++) {
-        for (let j = 0; j < 4; j++) {
-            if (grid[i][j] !== " " &&
-                grid[i][j] === grid[i - 1][j + 1]
-                && grid[i][j] === grid[i - 2][j + 2]
-                && grid[i][j] === grid[i - 3][j + 3])
+    for (let r = 3; r < ROWS; r++) {
+        for (let c = 0; c < 4; c++) {
+            if (grid[r][c] !== " " &&
+                grid[r][c] === grid[r - 1][c + 1]
+                && grid[r][c] === grid[r - 2][c + 2]
+                && grid[r][c] === grid[r - 3][c + 3])
                 return true;
         }
     }
