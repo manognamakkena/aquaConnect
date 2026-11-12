@@ -73,14 +73,14 @@ function updateUI() {
 
             if (grid[r][c] === "X") {
                 const img = document.createElement("img");
-                img.src = "/assets/nemo.png";
+                img.src = "./assets/nemo.png";
                 img.alt = "X";
                 cell.appendChild(img);
             }
 
             else if (grid[r][c] === "O") {
                 const img = document.createElement("img");
-                img.src = "/assets/dory.png";
+                img.src = "./assets/dory.png";
                 img.alt = "O";
                 cell.appendChild(img);
             }
