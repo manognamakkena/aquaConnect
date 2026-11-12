@@ -9,7 +9,7 @@ th,
 td {
     border-width: 7px;
     border-style: solid;
-    border-color: #1B7228;
+    border-color: #1e2bd6;
     height: 85px;
     width: 85px;
 }
@@ -89,13 +89,13 @@ td {
 }
 
 .glow {
-    filter: drop-shadow(0 0 12px rgba(255, 0, 47, 0.9));
+    filter: drop-shadow(0 0 12px rgba(0, 255, 81, 0.9));
 }
 
 .help {
     border-radius: 20px;
     border: none;
-    background-color: #20939b;
+    background-color: #2d65de;
     color: #ffffff;
     align-content: center;
     align-items: center;
